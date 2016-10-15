@@ -1,0 +1,96 @@
+\documentclass[a4paper,twosides,CJK,12pt]{cctart}
+%\usepackage{mflogo}                %\MF, \MP 命令宏包  ？？？？
+%\usepackage{texnames}              %\AMS 命令宏包   ？？？？？？
+\usepackage{indentfirst}            %首行缩进
+\usepackage{setspace}               %正文行距宏包
+\usepackage{paralist}               %压缩列表及行间列表宏包
+\usepackage{fancyvrb}               %原文打印修饰
+\usepackage{fancybox}               %盒子修饰
+\usepackage{CCT}                    %latex中文解决方案
+
+\usepackage{textcomp}               %摄氏度命令\textcelsius 在数学环境中无效
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{SimSun}
+\setlength{\parindent}{2em}        %首行缩进距离  未起作用????????
+\addtolength{\parskip}{3pt}        %段落之间的距离
+\setstretch{1.5}                   %正文行距均为1.2倍行距 在这里全部变成了1.2倍行距是不是命令行放置的问题？？？？？？？
+%\linespread {1.3}                 %之后所有内容均为一倍半行距 不需要setspace宏包
+%\linespread {1.6}                 %之后所有内容均为双倍行距
+
+\renewcommand{\thefootnote}{\arabic{footnote}}    %脚注样式 \arabic阿拉伯数字 \alph 小写英文字母 \roman 小写罗马数字 \Roman 大写罗马数字
+%\renewcommand{\theenumi}{\alph{enumi}}           %定制列表格式
+\newcommand{\ud}{\mathrm{d}}                      %微分符号
+
+
+
+\usepackage[top=0.5in, bottom=1in, left=2.5cm, right=2.5cm]{ geometry}    %页面布局
+\usepackage{amsmath}
+\usepackage{cases}
+%\headsep 0.5 true cm \topmargin 0pt \oddsidemargin 0pt
+%\evensidemargin 0pt \textheight 225mm \textwidth 165mm
+\usepackage{pifont}
+\usepackage{mathrsfs}
+\usepackage{slashbox}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{fancyhdr}
+
+\usepackage{color}
+\usepackage{picins}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,amsfonts,amsthm}
+\usepackage{epsfig,longtable}
+\usepackage[tight,hang]{subfigure}
+\usepackage{graphics}
+\usepackage{bbding}
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+
+\begin{document}
+
+\title{输入驱动电阻和驱动板功率计算 }
+\author{王柯 \ \ \ \ 201613030}
+\date{}
+\maketitle
+
+$I_{G(AVR)}=\frac{Q_{GS}+Q_{GD}}{t_{sw}}=\frac{4.2}{1}=4.2A$
+
+查阅手册$V_{GS(th)}=5.5V$则
+
+$R_{total}=\frac{V_{DD}+V_{GS(th)}}{I_{G(AVR)}}=\frac{15+5.5}{4.2}\cong4.88\Omega$
+
+$R_{DRV(on)}=R_{total}-R_{g(on)}=4.88-2.7=2.18\Omega$
+
+
+关于驱动板功率的计算，按照经验公式
+
+$C_{in}\cong5\cdot C_{iss}=5\times26=130\mu F$
+
+驱动板功率可以计算为：
+
+$P=C_{in}\cdot\Delta V_{g}^2\cdot f_{s}=130\times25^2\times16\times10^3=1.3 w$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
